@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class NotebookPage extends StatelessWidget {
   String Notebook, Notebook_Installment;
@@ -36,24 +35,19 @@ class NotebookPage extends StatelessWidget {
                 Text("ราคา: $Notebook"),
                 Text("จำนวนงวด : $Notebook_Installment"),
                 Text("อัตรดอกเบี้ย : " +
-                    (NumberFormat("#,###").format(
-                            Installment(double.parse(Notebook_Installment))))
-                        .toString() +
+                    Installment(double.parse(Notebook_Installment)).toString() +
                     "%"),
                 Text("จำนวนผ่อนต่องวด : " +
-                    (NumberFormat("#,###").format(Installment2(
-                            double.parse(Notebook),
-                            double.parse(Notebook_Installment))))
+                    Installment2(double.parse(Notebook),
+                            double.parse(Notebook_Installment))
                         .toString()),
                 Text("จำนวนเงินของดอกเบี้ยทั้งหมด : " +
-                    (NumberFormat("#,###").format(Installment3(
-                            double.parse(Notebook),
-                            double.parse(Notebook_Installment))))
+                    Installment3(double.parse(Notebook),
+                            double.parse(Notebook_Installment))
                         .toString()),
                 Text("จำนวนเงินทั้งหมดเมื่อผ่อนครบงวด : " +
-                    (NumberFormat("#,###").format(numberAdd(
-                            double.parse(Notebook),
-                            double.parse(Notebook_Installment))))
+                    numberAdd(double.parse(Notebook),
+                            double.parse(Notebook_Installment))
                         .toString())
               ],
             ),
